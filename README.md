@@ -15,7 +15,9 @@ We add the following:
 ```
 CATEGORY_2_child_child
 ```
-Category 2 is the root category for this store, so allows for store specific configuration
+Category 2 is the root category for this store, so allows for store specific configuration. If the category path is
+longer it will show something like `CATEGORY_2_child_child_child`
+
 
 ```
 CATEGORY_2_child_dvds
@@ -27,10 +29,13 @@ This one is kinda cool, this one allows you have one layout for multiple childca
 
 All these categories will have the `CATEGORY_2_child_books` handle.
 
+
 ```
 CATEGORY_3_child
 ```
 Child of a certain category.
+If the category path is longer it will show something like `CATEGORY_3_child_child`.
+
 
 ```
 CATEGORY_3_dvds
