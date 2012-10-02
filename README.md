@@ -1,6 +1,9 @@
 # H&O Handles
 This is a utility module that should make building Magento websites a bit easier.
 
+## Getting started with handles.
+-- enter description here --
+
 ## Add handles to category page
 
 If you are viewing a category: /products/dvds.html (category id: 5)
