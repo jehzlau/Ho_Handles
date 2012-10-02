@@ -31,6 +31,9 @@ If the category path is longer it will show something like `CATEGORY_3_child_chi
 This one probably is kinda useless, but is the current category written in a different notation and the way the module
 works this one is currenlty automatically added.
 
+## Add category handle to product page: `PRODUCT_CATEGORY_`
+The same as for the category applies, except everything is prefixed with `PRODUCT_CATEGORY_`.
+
 ## Add attribute set handle to product page
 
 ```
