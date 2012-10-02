@@ -20,7 +20,7 @@ class Ho_Handles_Model_Observer
 
             //if we are taking a look at a category page we don't add handles
             if (in_array('catalog_product_view', $update->getHandles()))
-                $handlePrefix = 'PRODUCT_CATEGORY_';
+                $handlePrefix = 'PRODUCT_CATEGORY';
 
             //We add the category paths here, ex: CATEGORY_123 and CATEGORY_12_child
             $path = array_reverse(array_slice($category->getPathIds(), 1, -1));
