@@ -24,6 +24,7 @@ class Ho_Handles_Model_Observer
 
             //We add the category paths here, ex: CATEGORY_123 and CATEGORY_12_child
             $path = array_reverse(array_slice($category->getPathIds(), 1, -1));
+
             foreach($path as $id)
             {
                 $elem = array_pop($path);
@@ -68,6 +69,38 @@ class Ho_Handles_Model_Observer
         $update = $observer->getEvent()->getLayout()->getUpdate();
 
         $update->addHandle($handlePrefix.'_'.$attributeSetName);
+    }
+
+
+    /**
+     * Add handles for the dropdown attributes
+     *
+     * @param Varien_Event_Observer $observer
+     */
+    public function addAttributeHandles(Varien_Event_Observer $observer)
+    {
+        $handlePrefix = 'PRODUCT_ATTRIBUTE';
+
+        /** @var $product Mage_Catalog_Model_Product */
+        $product = Mage::registry('current_product');
+
+        //Return if it is not product page
+        if (!$product instanceof Mage_Catalog_Model_Product) {
+            return;
+        }
+
+        /* @var $update Mage_Core_Model_Layout_Update */
+        $update = $observer->getEvent()->getLayout()->getUpdate();
+
+        foreach ($product->getAttributes() as $attribute)
+        {
+            /** @var $attribute Mage_Catalog_Model_Resource_Eav_Attribute */
+            if ($attribute->getIsVisibleOnFront() && $attribute->getFrontendInput() == 'select')
+            {
+                $value = $attribute->getName() .'_'.$attribute->getFrontend()->getValue($product);
+                $update->addHandle($handlePrefix.'_'.$this->_prepareHandle($value));
+            }
+        }
     }
 
 

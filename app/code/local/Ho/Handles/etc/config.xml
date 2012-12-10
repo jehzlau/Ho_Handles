@@ -20,6 +20,11 @@
                         <class>Ho_Handles_Model_Observer</class>
                         <method>addAttributeSetHandle</method>
                     </add_attribute_set_handle>
+                    <add_attribute_handles>
+                        <type>singleton</type>
+                        <class>Ho_Handles_Model_Observer</class>
+                        <method>addAttributeHandles</method>
+                    </add_attribute_handles>
                     <add_cms_page_handle>
                         <type>singleton</type>
                         <class>Ho_Handles_Model_Observer</class>
