@@ -149,6 +149,31 @@ class Ho_Handles_Model_Observer
 
 
     /**
+     * Adds layout handle for Customer Group
+     *
+     * @event controller_action_layout_load_before
+     * @param Varien_Event_Observer $observer
+     */
+    public function addCustomerGroupHandle(Varien_Event_Observer $observer)
+    {
+        $handlePrefix = 'CUSTOMER_GROUP';
+
+        if (!Mage::helper('customer')->isLoggedIn()) {
+            return;
+        }
+
+        /** @var $update Mage_Core_Model_Layout_Update */
+        $update = $observer->getEvent()->getLayout()->getUpdate();
+
+        $groupId = Mage::helper('customer')->getCustomer()->getGroupId();
+        $groupName = Mage::getModel('customer/group')->load($groupId)->getCode();
+        $groupName = $this->_prepareHandle($groupName);
+
+        $update->addHandle($handlePrefix.'_'.$groupName);
+    }
+
+
+    /**
      * Prepare the handle, replace dashes '-' and spaces ' ' for underscores '_'
      *
      * @param $handle
