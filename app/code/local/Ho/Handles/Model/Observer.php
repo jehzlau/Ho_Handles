@@ -1,4 +1,5 @@
 <?php
+
 class Ho_Handles_Model_Observer
 {
     /**
@@ -41,8 +42,6 @@ class Ho_Handles_Model_Observer
         }
     }
 
-
-
     /**
      * Adds layout handle PRODUCT_ATTRIBUTE_SET_<attribute_set_nicename>.
      *
@@ -70,7 +69,6 @@ class Ho_Handles_Model_Observer
 
         $update->addHandle($handlePrefix.'_'.$attributeSetName);
     }
-
 
     /**
      * Add handles for the dropdown attributes
